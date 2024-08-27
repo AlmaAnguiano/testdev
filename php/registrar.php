@@ -1,14 +1,17 @@
 <?php
 include 'conexion.php';
 //Recibir los datos y almacenarlos en variables
-$nombre = $_POST["nombre"];
-$apellidos = $_POST["apellidos"];
-$correo = $_POST["correo"];
-$usuario = $_POST["usuario"];
-$clave = $_POST["clave"];
-$telefono = $_POST["telefono"];
+$name = $_POST["name"];
+$correo = $_POST["email"];
+$password = $_POST["password"];
+$comida_favorita = $_POST["comida_favorita"];
+$artista_favorito = $_POST["artista_favorito"];
+$lugar_favorito = $_POST["lugar_favorito"];
+$color_favorito = $_POST["color_favorito"];
+
+
 //Consulta para insertar
-$insertar = "INSERT INTO tb_usuarios(nombre, apellidos, correo, usuario, clave, telefono) VALUES ('$nombre', '$apellidos', '$correo', '$usuario', '$clave', '$telefono')";
+$insertar = "INSERT INTO tb_usuarios(name, email, password, comida_favorita, artista_favorito, Lugar_favorito,color_favorito) VALUES ('$', '$name', '$email', '$password', '$comida_favorita', '$artista_favorito', '$lugar_favorito','$color_favorito')";
 //Ejecutar consulta
 $resultado = mysqli_query($conexion, $insertar);
 if (!$resultado) {

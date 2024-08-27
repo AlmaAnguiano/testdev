@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario</title>
+    <title>Formulario Completo</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -21,7 +20,7 @@
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
+            width: 350px;
         }
 
         .form-container h2 {
@@ -36,7 +35,10 @@
             font-weight: bold;
         }
 
-        .form-container input[type="text"] {
+        .form-container input[type="text"],
+        .form-container input[type="email"],
+        .form-container input[type="password"],
+        .form-container input[type="file"] {
             width: 100%;
             padding: 8px;
             margin-bottom: 15px;
@@ -61,16 +63,34 @@
 </head>
 <body>
     <div class="form-container">
-        <h2>Formulario</h2>
-        <form action="https://github.com/tu_usuario/tu_repositorio" method="post">
+        <h2>Formulario Completo</h2>
+        <form action="https://github.com/tu_usuario/tu_repositorio" method="post" enctype="multipart/form-data">
             <label for="nombre">Nombre:</label>
             <input type="text" id="nombre" name="nombre" required>
 
             <label for="apellido">Apellido:</label>
             <input type="text" id="apellido" name="apellido" required>
 
+            <label for="correo">Correo Electrónico:</label>
+            <input type="email" id="correo" name="correo" required>
+
+            <label for="contraseña">Contraseña:</label>
+            <input type="password" id="contraseña" name="contraseña" required>
+
+            <label for="imagen">Subir Imagen:</label>
+            <input type="file" id="imagen" name="imagen" accept="image/*">
+
             <label for="comida_favorita">Comida Favorita:</label>
-            <input type="text" id="comida_favorita" name="comida_favorita" required>
+            <input type="text" id="comida_favorita" name="comida_favorita">
+
+            <label for="artista_favorito">Artista Favorito:</label>
+            <input type="text" id="artista_favorito" name="artista_favorito">
+
+            <label for="lugar_favorito">Lugar Favorito:</label>
+            <input type="text" id="lugar_favorito" name="lugar_favorito">
+
+            <label for="color_favorito">Color Favorito:</label>
+            <input type="text" id="color_favorito" name="color_favorito">
 
             <input type="submit" value="Enviar">
         </form>

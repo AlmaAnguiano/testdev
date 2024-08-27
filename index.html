@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Formulario Completo</title>
+    <title>Login y Registro</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -15,38 +15,42 @@
             margin: 0;
         }
 
-        .form-container {
+        .container {
             background-color: #fff;
             padding: 20px;
             border-radius: 8px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             width: 350px;
-        }
-
-        .form-container h2 {
-            margin-bottom: 20px;
-            font-size: 24px;
             text-align: center;
         }
 
-        .form-container label {
-            display: block;
-            margin-bottom: 5px;
-            font-weight: bold;
+        .container h2 {
+            margin-bottom: 20px;
+            font-size: 24px;
         }
 
-        .form-container input[type="text"],
-        .form-container input[type="email"],
-        .form-container input[type="password"],
-        .form-container input[type="file"] {
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
             width: 100%;
             padding: 8px;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
             border: 1px solid #ccc;
             border-radius: 4px;
         }
 
-        .form-container input[type="submit"] {
+        .form-group input[type="submit"] {
             background-color: #28a745;
             color: white;
             padding: 10px;
@@ -56,41 +60,84 @@
             width: 100%;
         }
 
-        .form-container input[type="submit"]:hover {
+        .form-group input[type="submit"]:hover {
             background-color: #218838;
+        }
+
+        .switch-form {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .switch-form a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .switch-form a:hover {
+            text-decoration: underline;
         }
     </style>
 </head>
 <body>
-    <div class="form-container">
-        <h2>Formulario Completo</h2>
-        <form action="https://github.com/AlmaAnguiano/testdev" method="post" enctype="multipart/form-data">
-            <label for="nombre">Nombre:</label>
-            <input type="text" id="nombre" name="nombre" required>
+    <div class="container">
+        <!-- Formulario de Inicio de Sesión -->
+        <div id="login-form">
+            <h2>Iniciar Sesión</h2>
+            <form action="/login" method="post">
+                <div class="form-group">
+                    <label for="login-email">Correo Electrónico:</label>
+                    <input type="email" id="login-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="login-password">Contraseña:</label>
+                    <input type="password" id="login-password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Iniciar Sesión">
+                </div>
+            </form>
+            <div class="switch-form">
+                ¿No tienes una cuenta? <a href="#" onclick="showRegister()">Regístrate aquí</a>
+            </div>
+        </div>
 
-            <label for="apellido">Apellido:</label>
-            <input type="text" id="apellido" name="apellido" required>
-
-            <label for="correo">Correo Electrónico:</label>
-            <input type="email" id="correo" name="correo" required>
-
-            <label for="contraseña">Contraseña:</label>
-            <input type="password" id="contraseña" name="contraseña" required>
-
-            <label for="comida_favorita">Comida Favorita:</label>
-            <input type="text" id="comida_favorita" name="comida_favorita">
-
-            <label for="artista_favorito">Artista Favorito:</label>
-            <input type="text" id="artista_favorito" name="artista_favorito">
-
-            <label for="lugar_favorito">Lugar Favorito:</label>
-            <input type="text" id="lugar_favorito" name="lugar_favorito">
-
-            <label for="color_favorito">Color Favorito:</label>
-            <input type="text" id="color_favorito" name="color_favorito">
-
-            <input type="submit" value="Enviar">
-        </form>
+        <!-- Formulario de Registro -->
+        <div id="register-form" style="display: none;">
+            <h2>Registrarse</h2>
+            <form action="/register" method="post">
+                <div class="form-group">
+                    <label for="register-name">Nombre:</label>
+                    <input type="text" id="register-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-email">Correo Electrónico:</label>
+                    <input type="email" id="register-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="register-password">Contraseña:</label>
+                    <input type="password" id="register-password" name="password" required>
+                </div>
+                <div class="form-group">
+                    <input type="submit" value="Registrarse">
+                </div>
+            </form>
+            <div class="switch-form">
+                ¿Ya tienes una cuenta? <a href="#" onclick="showLogin()">Inicia sesión aquí</a>
+            </div>
+        </div>
     </div>
+
+    <script>
+        function showRegister() {
+            document.getElementById('login-form').style.display = 'none';
+            document.getElementById('register-form').style.display = 'block';
+        }
+
+        function showLogin() {
+            document.getElementById('login-form').style.display = 'block';
+            document.getElementById('register-form').style.display = 'none';
+        }
+    </script>
 </body>
 </html>

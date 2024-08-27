@@ -6,3 +6,4 @@ if (!$conexion){
 else{
 	echo 'Conectado exitosamente';
 }
+
